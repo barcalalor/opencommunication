@@ -13,5 +13,10 @@ class Message(models.Model):
     topic = models.CharField(max_length=255)
     content = models.TextField()
 
-    class Meta:
-        unique_together = (("id", "sender"),)
+
+class Notification(models.Model):
+    service_name = models.CharField(max_length=255, null=True)
+    content = models.TextField(null=True)
+
+    def __str__(self):
+        return self.service_name
